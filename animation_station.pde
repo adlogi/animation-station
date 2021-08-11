@@ -199,14 +199,13 @@ void keyPressed() {
         
         String dirName = "";
         String ffmpegCmd = new String();
-        String ffmpegVer = "4.2.1"; // tested: 3.4.1; most recent: 4.2.1
         
         if (System.getProperty("os.name").indexOf("Mac") > -1) {
           dirName = sketchPath() + "/animations/" + nf(year(), 4) + nf(month(), 2) + nf(day(), 2) + nf(hour(), 2) + nf(minute(), 2) + nf(second(), 2) + "/";
-          ffmpegCmd = sketchPath() + "/ffmpeg-" + ffmpegVer + "/mac/ffmpeg -y -framerate " + ANIMATION_RATE + " -i " + dirName + "frame-%03d.png -c:v libx264 -r 30 -pix_fmt yuv420p " + dirName + "animation.mp4";
+          ffmpegCmd = sketchPath() + "/ffmpeg" + "/mac/ffmpeg -y -framerate " + ANIMATION_RATE + " -i " + dirName + "frame-%03d.png -c:v libx264 -r 30 -pix_fmt yuv420p " + dirName + "animation.mp4";
         } else if (System.getProperty("os.name").indexOf("Windows") > -1) {
           dirName = sketchPath() + "\\animations\\" + nf(year(), 4) + nf(month(), 2) + nf(day(), 2) + nf(hour(), 2) + nf(minute(), 2) + nf(second(), 2) + "\\";
-          ffmpegCmd = sketchPath() + "\\ffmpeg-" + ffmpegVer + "\\win64\\" + "ffmpeg -y -framerate " + ANIMATION_RATE + " -i " + dirName + "frame-%03d.png -c:v libx264 -r 30 -pix_fmt yuv420p " + dirName + "animation.mp4";
+          ffmpegCmd = sketchPath() + "\\ffmpeg" + "\\win64\\" + "ffmpeg -y -framerate " + ANIMATION_RATE + " -i " + dirName + "frame-%03d.png -c:v libx264 -r 30 -pix_fmt yuv420p " + dirName + "animation.mp4";
         }
         println("Animation directory: " + dirName);
         println("FFmpeg command: " + ffmpegCmd);
